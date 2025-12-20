@@ -2,3 +2,10 @@
 
 ## Abstract
  Accurate classification of medical time series (MeDTS) is essential for reliable clinical diagnosis but remains challenging due to complex multi-channel temporal dependencies, redundant information, and limited labeled data. While transformer-based models excel in time series analysis, most are designed for forecasting and fail to fully exploit the unique characteristics of MeDTS. We propose GRA-Net **G**rouped **R**efinement **A**ttention **Net**), which captures both local and global temporal patterns while adaptively attending to critical channels and time steps. The model leverages multi-scale and dilated depthwise separable convolutions within a hierarchical attention framework, implemented via the Refined Context Attention block, to extract informative spatial and channel-wise features. A divide-and-group strategy applies attention over smaller token groups, which are further refined through learnable attention and residual connections, enabling efficient modeling. Experimental results show that GRA-Net enhances feature representations, suppresses noise, and consistently improves classification performance across diverse medical time series datasets.
+
+## 1. Dataset
+| **Dataset** | **# Subjects** | **# Samples** | **# Classes** | **Input Channels (C<sub>in</sub>)** | **# Timestamps** |
+| :---------- | :------------: | :-----------: | :-----------: | :---------------------------------: | :--------------: |
+| APAVA       |       23       |     5,967     |       2       |                  16                 |        256       |
+| ADFTD       |       88       |     69,752    |       3       |                  19                 |        256       |
+| PTB-XL      |     17,596     |    191,400    |       5       |                  12                 |        250       |
