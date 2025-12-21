@@ -89,6 +89,7 @@ In the subject-dependent configuration, the training, validation, and test sets 
        alt="Results on Subject Independent with Baselines"
        width="700">
 </p>
+
 ## Acknowledgement
 
 This project is constructed based on the code in repo [Medformer](https://github.com/DL4mHealth/Medformer/tree/main), [Time-Series-Library](https://github.com/thuml/Time-Series-Library).
