@@ -5,11 +5,11 @@
 ## 1. Proposed Framework
 ![GRA-Net Architecture](assets/GRA_Netv1-model_architecture_1.drawio.png)
 
-*Figure 1 (a): Overview of the proposed GRANet architecture.*
+*Figure 1 : Overview of the proposed GRANet architecture.*
 
 ![RCA Block](assets/GRA_Netv1-Refined_Attention_block.drawio.png)
 
-*Figure 1 (a): Overview of the Proposed Refined Context Attention (RCA)Block.*
+*Figure 2 : Overview of the Proposed Refined Context Attention (RCA)Block.*
 ## 2. Dataset
 | **Dataset** | **# Subjects** | **# Samples** | **# Classes** | **Input Channels (C<sub>in</sub>)** | **# Timestamps** |
 | :---------- | :------------: | :-----------: | :-----------: | :---------------------------------: | :--------------: |
