@@ -4,7 +4,7 @@ Code will be released soon..!!
 ##  Ablation 
 ### 1. Albation study on the effect of the number of selcted groups (g) on GRA-Net performance and comparison with MedFormer
 <p align="center">
-  <img src="assets/ablation_group_size.png" 
+  <img src="assets/Group_size_ablation.png" 
        alt="Results on Subject Independent with Baselines"
        width="700">
 </p>
