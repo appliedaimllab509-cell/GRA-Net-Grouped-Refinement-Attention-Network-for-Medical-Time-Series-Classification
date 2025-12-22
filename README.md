@@ -83,13 +83,13 @@ Nonformer ([Liu et al., 2022](https://arxiv.org/abs/2206.12381)), PatchTST ([Nie
 .The best performance is achieved when the group parameter $g$ is set to 32 for APAVA, 64 for ADFTD, and 50 for PTB-XL. Notably, for the ADFTD dataset, the F1 score drops to 48.69\% in the subject-independent setup. This stark contrast highlights the increased challenge of the subject-independent scenario, which more closely reflects real-world applications. 
 
 <p align="center">
-  <img src="assets/subject_Ind.png" 
+  <img src="assets/subject_indept.png" 
        alt="Results on Subject Independent with Baselines"
        width="700">
 </p>
 In the subject-dependent configuration, the training, validation, and test sets are created at the sample level. All samples from each subject are randomly shuffled and allocated to the three sets according to a fixed ratio, meaning that data from the same subject may appear across training, validation, and testing simultaneously. We applied this setup to the ADFTD EEG dataset, with results summarized in Table.2 . Our approach comparetively outperforms all baselines, achieving the highest performance across all six evaluation metrics, including an exceptional Precision score of 97.29\%. It is worth noting that baseline models such as Informer, Nonformer, and Transformer also perform competitively, each achieving precision scores above 90\%.
 <p align="center">
-  <img src="assets/subject_dep.png" 
+  <img src="assets/subject_dept.png" 
        alt="Results on Subject Independent with Baselines"
        width="700">
 </p>
