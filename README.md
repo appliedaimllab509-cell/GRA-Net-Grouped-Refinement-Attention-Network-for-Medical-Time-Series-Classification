@@ -11,7 +11,7 @@ Code will be released soon..!!
 
 **Note** : The revised manuscript will replace the current Table 2 with the modified Table 2 from the above link, which presents ablation results and MedFormer results too. The requested complexity analysis is as follows and will be added to the revised manuscript.
 
-## Complexity Analysis
+### 2. Complexity Analysis
 <p align="center">
   <img src="assets/Complexity_Analysis.png" 
        alt="Results on Subject Independent with Baselines"
