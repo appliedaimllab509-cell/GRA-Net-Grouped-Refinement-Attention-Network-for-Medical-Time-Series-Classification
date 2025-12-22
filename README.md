@@ -18,6 +18,8 @@ Code will be resealing soon..!!
 | APAVA       |       23       |     5,967     |       2       |                  16                 |        256       |
 | ADFTD       |       88       |     69,752    |       3       |                  19                 |        256       |
 | PTB-XL      |     17,596     |    191,400    |       5       |                  12                 |        250       |
+| PTB         |     198     |    64,356    |       2       |                  15                 |        300       |
+
 ### Processed data
 Download the raw data from the links above and run notebooks in the folder `data_preprocessing/` for each raw dataset to get the processed dataset. 
 The folder for processed datasets has two directories: `Feature/` and `Label/`. 
