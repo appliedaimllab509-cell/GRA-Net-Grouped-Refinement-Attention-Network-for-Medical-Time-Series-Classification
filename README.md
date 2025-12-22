@@ -12,67 +12,106 @@ Code will be released soon..!!
 **Note** : The revised manuscript will replace the current Table 2 with the modified Table 2 from the above link, which presents ablation results and MedFormer results too. The requested complexity analysis is as follows and will be added to the revised manuscript.
 
 ## Complexity Analysis
-Here is the formatted Markdown for your GitHub `README.md`. I have cleaned up the notation, applied LaTeX for technical clarity, and organized the sections for better readability.
+
+# Computational Complexity Analysis
+
+## Input Definition
+
+Let the input multivariate time series be defined as:
+
+\[
+\mathbf{X} \in \mathbb{R}^{B \times L \times C}
+\]
+
+where:
+- \( B \) denotes the batch size,  
+- \( L \) denotes the sequence length,  
+- \( C \) denotes the feature (channel) dimension.  
+
+Let \( g \) be the group size, which partitions the sequence into:
+
+\[
+G = \frac{L}{g}
+\]
+
+groups.
 
 ---
 
-# GRA-Net Complexity Analysis
+## Channel Importance Attention (CIA)
 
-This section provides a formal breakdown of the computational complexity for the **GRA-Net** architecture and its constituent modules.
+The total computational complexity of the **Channel Importance Attention (CIA)** module is given by:
 
-## 1. Input Definition
+\[
+\mathcal{O}(B \cdot C \cdot L + B \cdot \frac{C^2}{r})
+\]
 
-Let the input time series be defined as , where:
-
-* ****: Batch size
-* ****: Sequence length
-* ****: Feature dimension (channels)
-* ****: Group size, resulting in  groups.
+where:
+- \( r \) is the MLP reduction ratio.
 
 ---
 
-## 2. Module Complexity Breakdown
+## Multi-Scale Feature Attention (MSFA)
 
-### Channel Importance Attention (CIA) Module
+The total computational complexity of the **Multi-Scale Feature Attention (MSFA)** module is:
 
-The complexity involves the interaction of sequence length and the MLP bottleneck used for channel recalibration:
-
-
-
-*Where  is the MLP reduction ratio.*
-
-### Multi-Scale Feature Attention (MSFA) Module
-
-The MSFA module maintains a linear relationship with the sequence length:
-
-
-### RCA Block Total
-
-Combining the CIA and MSFA modules, the total complexity for the RCA block remains:
-
+\[
+\mathcal{O}(B \cdot C \cdot L)
+\]
 
 ---
 
-## 3. Grouped Attention Complexity
+## RCA Block Complexity
 
-The total complexity of the standard **Scaled Dot-Product Attention** within a single group of length  is . By summing across all  groups, the total complexity is:
+The **RCA block** combines CIA and MSFA modules. Hence, its overall complexity is:
 
-
-> [!TIP]
-> By fixing the group size , the complexity becomes **linear** with respect to the sequence length , effectively avoiding the  bottleneck typically found in standard Transformers.
+\[
+\begin{aligned}
+\mathcal{O}(B \cdot C \cdot L) 
+&= \mathcal{O}(B \cdot C \cdot L + B \cdot \frac{C^2}{r}) 
++ \mathcal{O}(B \cdot C \cdot L)
+\end{aligned}
+\]
 
 ---
 
-## 4. Final GRA-Net Complexity
+## Group-wise Attention Complexity
 
-Combining the three components above, the total complexity of **GRA-Net** is:
+Within each group of length \( g \), the complexity of standard **Scaled Dot-Product Attention** is:
 
+\[
+\mathcal{O}(B \cdot g^2 \cdot C)
+\]
 
-Given that in typical long-term forecasting scenarios:
+Summing across all \( G = \frac{L}{g} \) groups, the total complexity becomes:
 
-*  (Channels are much smaller than sequence length)
-*  (Group size is much smaller than sequence length)
+\[
+\frac{L}{g} \times \mathcal{O}(B \cdot g^2 \cdot C)
+= \mathcal{O}(B \cdot L \cdot g \cdot C)
+\]
 
-The final complexity simplifies to ****, achieving a **linear** scale.
+By fixing the group size \( g \), the attention complexity scales **linearly** with respect to the sequence length \( L \), effectively avoiding the quadratic \( \mathcal{O}(L^2) \) bottleneck of standard Transformers.
+
+---
+
+## Overall GRA-Net Complexity
+
+By combining all three components, the total computational complexity of **GRA-Net** is:
+
+\[
+\mathcal{O}(B \cdot C \cdot L) + \mathcal{O}(B \cdot L \cdot g \cdot C)
+\]
+
+Given that:
+- \( C \ll L \),  
+- \( g \ll L \),  
+
+the overall complexity simplifies to:
+
+\[
+\boxed{\mathcal{O}(B \cdot L)}
+\]
+
+This demonstrates that **GRA-Net achieves linear-time complexity with respect to the sequence length**, making it highly scalable for long time-series modeling.
 
 ---
