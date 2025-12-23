@@ -1,5 +1,5 @@
 # GRA-Net-Grouped-Refinement-Attention-Network-for-Medical-Time-Series-Classification
-Code will be released soon..!!
+Code will be released soon !!
 
 ##  Ablation 
 ### 1. Albation study on the effect of the number of selcted groups (g) on GRA-Net performance and comparison with MedFormer [Reply to Reviewer [2B54] and Reviewer [6120]].
